@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Airplane</title>
+</head>
+<body>
+    <center><h1>機場資料查詢網</h1></center>
+    <p>取得所有機場資料</p>
+    Airport {
+        AirportID (string): 機場IATA國際代碼 ,
+        AirportName (NameType, optional): 機場中文名稱 ,
+        AirportIATA (string, optional): 機場IATA國際代碼 ,
+        AirportICAO (string, optional): 機場ICAO國際代碼 ,
+        AirportPosition (PointType, optional): 機場位置 ,
+        AirportCityName (NameType, optional): 機場所屬城市 ,
+        AirportAdrress (string, optional): 機場地址 ,
+        AirportPhone (string, optional): 機場聯繫電話 ,
+        AirportNationality (string, optional): 機場國籍 ,
+        UpdateTime (DateTime): 資料更新日期時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz) ,
+    }
+
+    <p>取得航空公司資料</p>
+    Airline {
+        AirlineID (string): 航空公司IATA國際代碼 ,
+        AirlineName (NameType, optional): 航空公司名稱 ,
+        AirlineNameAlias (NameType, optional): 航空公司簡稱 ,
+        AirlineIATA (string, optional): 航空公司IATA國際代碼 ,
+        AirlineICAO (string, optional): 航空公司ICAO國際代碼 ,
+        AirlineEmail (string, optional): 航空公司電子信箱 ,
+        AirlineAddress (string, optional): 航空公司地址 ,
+        AirlinePhone (string, optional): 航空公司聯繫電話 ,
+        AirlineNationality (string, optional): 航空公司國籍 ,
+        UpdateTime (DateTime): 資料更新日期時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz) ,
+    }
+    <p>取得機場的即時出境航班</p>
+    FIDSDeparture {
+        FlightDate (DateTime): 航班日期(ISO8601格式:yyyy-MM-dd) ,
+        FlightNumber (string): 航機班號 ,
+        AirRouteType (integer, optional): 航線種類(目前民航局與桃機的FIDS系統都尚未提供此欄位資料) : [-2:'特殊',1:'國際',2:'國內',3:'兩岸',4:'國際包機',5:'國內包機',6:'兩岸包機'] ,
+        AirlineID (string): 航空公司IATA國際代碼 ,
+        DepartureAirportID (string): 起點機場IATA國際代碼 ,
+        ArrivalAirportID (string): 目的地機場IATA國際代碼 ,
+        ScheduleDepartureTime (DateTime, optional): 表訂出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        ActualDepartureTime (DateTime, optional): 實際出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        EstimatedDepartureTime (DateTime, optional): 預估出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        DepartureRemark (string, optional): 航班屬性狀態, ,為該機場觀點的狀態 ,
+        DepartureRemarkEn (string, optional): 航班屬性狀態(英文) ,
+        Terminal (string, optional): 航廈 ,
+        Gate (string, optional): 登機門 ,
+        CodeShare (string, optional): 航班共用班號 ,
+        IsCargo (boolean, optional): 是否為貨機 ,
+        AcType (string, optional): 航空器型號 ,
+        BaggageClaim (string, optional): 行李轉盤(離站FIDS沒有「行李轉盤」資訊, 到站FIDS才可能有) ,
+        CheckCounter (string, optional): 報到櫃檯(離站FIDS可能有「報到櫃台」資訊, 到站FIDS不會有) ,
+        UpdateTime (DateTime): 資料更新日期時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz)
+    }
+
+    <p>取得機場的即時入境航班</p>
+    FIDSArrival {
+        FlightDate (DateTime): 航班日期(ISO8601格式:yyyy-MM-dd) ,
+        FlightNumber (string): 航機班號 ,
+        AirRouteType (integer, optional): 航線種類(目前民航局與桃機的FIDS系統都尚未提供此欄位資料) : [-2:'特殊',1:'國際',2:'國內',3:'兩岸',4:'國際包機',5:'國內包機',6:'兩岸包機'] ,
+        AirlineID (string): 航空公司IATA國際代碼 ,
+        DepartureAirportID (string): 起點機場IATA國際代碼 ,
+        ArrivalAirportID (string): 目的地機場IATA國際代碼 ,
+        ScheduleArrivalTime (DateTime, optional): 表訂抵達時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        ActualArrivalTime (DateTime, optional): 實際抵達時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        EstimatedArrivalTime (DateTime, optional): 預估抵達時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        ArrivalRemark (string, optional): 航班屬性狀態,為該機場觀點的狀態 ,
+        ArrivalRemarkEn (string, optional): 航班屬性狀態(英文) ,
+        Terminal (string, optional): 航廈 ,
+        Gate (string, optional): 登機門 ,
+        CodeShare (string, optional): 航班共用班號 ,
+        IsCargo (boolean, optional): 是否為貨機 ,
+        AcType (string, optional): 航空器型號 ,
+        BaggageClaim (string, optional): 行李轉盤(到站FIDS可能有「行李轉盤」資訊, 離站FIDS不會有) ,
+        CheckCounter (string, optional): 報到櫃檯(到站FIDS不會有「報到櫃台」資訊, 離站FIDS才可能有) ,
+        UpdateTime (DateTime): 資料更新日期時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz)
+    }
+
+    <p>取得即時航班資料</p>
+    FIDS {
+        FlightDate (DateTime): 航班日期(ISO8601格式:yyyy-MM-dd) ,
+        FlightNumber (string): 航機班號 ,
+        AirRouteType (integer, optional): 航線種類 : [-2:'特殊',1:'國際',2:'國內',3:'兩岸',4:'國際包機',5:'國內包機',6:'兩岸包機'] ,
+        AirlineID (string): 航空公司IATA國際代碼 ,
+        DepartureAirportID (string): 起點機場IATA國際代碼 ,
+        ArrivalAirportID (string): 目的地機場IATA國際代碼 ,
+        ScheduleDepartureTime (DateTime, optional): 表訂出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        ActualDepartureTime (DateTime, optional): 實際出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        EstimatedDepartureTime (DateTime, optional): 預估出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        ScheduleArrivalTime (DateTime, optional): 表訂抵達時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        ActualArrivalTime (DateTime, optional): 實際抵達時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        EstimatedArrivalTime (DateTime, optional): 預估抵達時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        DepartureRemark (string, optional): 航班屬性狀態,為第三方觀點的狀態(資料來源:民航局) ,
+        DepartureRemarkEn (string, optional): 航班屬性狀態(英文) ,
+        ArrivalRemark (string, optional): 航班屬性狀態,為該機場觀點的狀態 ,
+        ArrivalRemarkEn (string, optional): 航班屬性狀態(英文) ,
+        FlightStatus (string, optional): 航班運行狀態,以航班的角度的狀態 ,
+        FlightStatusEn (string, optional): 航班運行狀態(英文) ,
+        FlightStatusPC (string, optional): 航班運行狀態百分比(國內線) ,
+        FlightRemark (string, optional): 航班屬性 ,
+        ArrivalTerminal (string, optional): 抵達航廈 ,
+        DepartureTerminal (string, optional): 出發航廈 ,
+        ArrivalGate (string, optional): 抵達登機門 ,
+        DepartureGate (string, optional): 出發登機門 ,
+        CodeShare (string, optional): 航班共用班號 ,
+        IsCargo (boolean, optional): 是否為貨機 ,
+        AcType (string, optional): 航空器型號 ,
+        BaggageClaim (string, optional): 行李轉盤 ,
+        CheckCounter (string, optional): 報到櫃檯 ,
+        UpdateTime (DateTime): 資料更新日期時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz)
+    }
+
+    <p>取得機場的即時航班資料</p>
+    Airport_FIDS {
+        AirportID (string): 機場IATA國際代碼 ,
+        FIDSDeparture (Array[FIDSDeparture], optional): 出發航班顯示資料 ,
+        FIDSArrival (Array[FIDSArrival], optional): 抵達航班顯示資料 ,
+        UpdateTime (DateTime): 資料更新日期時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz)
+        }
+        FIDSDeparture {
+        FlightDate (DateTime): 航班日期(ISO8601格式:yyyy-MM-dd) ,
+        FlightNumber (string): 航機班號 ,
+        AirRouteType (integer, optional): 航線種類(目前民航局與桃機的FIDS系統都尚未提供此欄位資料) : [-2:'特殊',1:'國際',2:'國內',3:'兩岸',4:'國際包機',5:'國內包機',6:'兩岸包機'] ,
+        AirlineID (string): 航空公司IATA國際代碼 ,
+        DepartureAirportID (string): 起點機場IATA國際代碼 ,
+        ArrivalAirportID (string): 目的地機場IATA國際代碼 ,
+        ScheduleDepartureTime (DateTime, optional): 表訂出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        ActualDepartureTime (DateTime, optional): 實際出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        EstimatedDepartureTime (DateTime, optional): 預估出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        DepartureRemark (string, optional): 航班屬性狀態, ,為該機場觀點的狀態 ,
+        DepartureRemarkEn (string, optional): 航班屬性狀態(英文) ,
+        Terminal (string, optional): 航廈 ,
+        Gate (string, optional): 登機門 ,
+        CodeShare (string, optional): 航班共用班號 ,
+        IsCargo (boolean, optional): 是否為貨機 ,
+        AcType (string, optional): 航空器型號 ,
+        BaggageClaim (string, optional): 行李轉盤(離站FIDS沒有「行李轉盤」資訊, 到站FIDS才可能有) ,
+        CheckCounter (string, optional): 報到櫃檯(離站FIDS可能有「報到櫃台」資訊, 到站FIDS不會有) ,
+        UpdateTime (DateTime): 資料更新日期時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz)
+        }
+        FIDSArrival {
+        FlightDate (DateTime): 航班日期(ISO8601格式:yyyy-MM-dd) ,
+        FlightNumber (string): 航機班號 ,
+        AirRouteType (integer, optional): 航線種類(目前民航局與桃機的FIDS系統都尚未提供此欄位資料) : [-2:'特殊',1:'國際',2:'國內',3:'兩岸',4:'國際包機',5:'國內包機',6:'兩岸包機'] ,
+        AirlineID (string): 航空公司IATA國際代碼 ,
+        DepartureAirportID (string): 起點機場IATA國際代碼 ,
+        ArrivalAirportID (string): 目的地機場IATA國際代碼 ,
+        ScheduleArrivalTime (DateTime, optional): 表訂抵達時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        ActualArrivalTime (DateTime, optional): 實際抵達時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        EstimatedArrivalTime (DateTime, optional): 預估抵達時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+        ArrivalRemark (string, optional): 航班屬性狀態,為該機場觀點的狀態 ,
+        ArrivalRemarkEn (string, optional): 航班屬性狀態(英文) ,
+        Terminal (string, optional): 航廈 ,
+        Gate (string, optional): 登機門 ,
+        CodeShare (string, optional): 航班共用班號 ,
+        IsCargo (boolean, optional): 是否為貨機 ,
+        AcType (string, optional): 航空器型號 ,
+        BaggageClaim (string, optional): 行李轉盤(到站FIDS可能有「行李轉盤」資訊, 離站FIDS不會有) ,
+        CheckCounter (string, optional): 報到櫃檯(到站FIDS不會有「報到櫃台」資訊, 離站FIDS才可能有) ,
+        UpdateTime (DateTime): 資料更新日期時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz)
+    }
+    
+    <p>取得[國內機場]氣象資訊觀測資料</p>
+    METAR {
+        AirportID (string): 機場代碼(IATA) ,
+        StationID (string): 機場氣象觀測站代碼(ICAO) ,
+        CountryName (NameType): 國家名稱 ,
+        CityName (NameType): 機場所屬城市 ,
+        AirportName (NameType): 機場名稱 ,
+        StationPosition (PointType): 機場氣象觀測站座標 ,
+        ObservationTime (DateTime): 觀測時間 ,
+        MetarText (string): 機場天氣報告(METAR/SPECI) ,
+        MetarTime (string): 機場天氣報告時間(地方時) ,
+        WindDirection (string): 風向(含單位) ,
+        WindSpeed (string): 風速(含單位) ,
+        Visibility (string): 盛行能見度(含單位，9999以10公里以上表示) ,
+        Ceiling (string): 雲冪(含單位) ,
+        Temperature (string): 溫度(含單位) ,
+        WeatherDescription (NameType): 天氣描述 ,
+        UpdateTime (DateTime): 本平台資料更新時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz)
+    }
+
+    <p>取得國內航空定期時刻表</p>
+    GeneralFlightSchedule {
+        AirlineID (string): 航空公司IATA國際代碼 ,
+        ScheduleStartDate (DateTime): 班表開始日期(ISO8601格式:yyyy-MM-dd) ,
+        ScheduleEndDate (DateTime): 班表結束日期(ISO8601格式:yyyy-MM-dd) ,
+        FlightNumber (string): 班機號碼 ,
+        DepartureAirportID (string): 起點機場IATA國際代碼 ,
+        DepartureTime (string): 起點機場出發時間 (格式: HH:mm 當地時間，跨日以+1 表示) ,
+        CodeShare (Array[CodeShare], optional): 共用班號 ,
+        ArrivalAirportID (string): 目的地機場IATA國際代碼 ,
+        ArrivalTime (string): 終點機場抵達時間 (格式: HH:mm 當地時間，跨日以+1 表示) ,
+        Monday (boolean): 週一飛行與否 ,
+        Tuesday (boolean): 週二飛行與否 ,
+        Wednesday (boolean): 週三飛行與否 ,
+        Thursday (boolean): 週四飛行與否 ,
+        Friday (boolean): 週五飛行與否 ,
+        Saturday (boolean): 週六飛行與否 ,
+        Sunday (boolean): 週日飛行與否 ,
+        Terminal (string, optional): 航廈 ,
+        UpdateTime (DateTime): 資料更新日期時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz) ,
+        VersionID (integer): 資料版本編號
+    }
+
+    <p>取得國際航空定期時刻表</p>
+    GeneralFlightSchedule {
+        AirlineID (string): 航空公司IATA國際代碼 ,
+        ScheduleStartDate (DateTime): 班表開始日期(ISO8601格式:yyyy-MM-dd) ,
+        ScheduleEndDate (DateTime): 班表結束日期(ISO8601格式:yyyy-MM-dd) ,
+        FlightNumber (string): 班機號碼 ,
+        DepartureAirportID (string): 起點機場IATA國際代碼 ,
+        DepartureTime (string): 起點機場出發時間 (格式: HH:mm 當地時間，跨日以+1 表示) ,
+        CodeShare (Array[CodeShare], optional): 共用班號 ,
+        ArrivalAirportID (string): 目的地機場IATA國際代碼 ,
+        ArrivalTime (string): 終點機場抵達時間 (格式: HH:mm 當地時間，跨日以+1 表示) ,
+        Monday (boolean): 週一飛行與否 ,
+        Tuesday (boolean): 週二飛行與否 ,
+        Wednesday (boolean): 週三飛行與否 ,
+        Thursday (boolean): 週四飛行與否 ,
+        Friday (boolean): 週五飛行與否 ,
+        Saturday (boolean): 週六飛行與否 ,
+        Sunday (boolean): 週日飛行與否 ,
+        Terminal (string, optional): 航廈 ,
+        UpdateTime (DateTime): 資料更新日期時間(ISO8601格式:yyyy-MM-ddTHH:mm:sszzz) ,
+        VersionID (integer): 資料版本編號
+    }
+</body>
+</html>
