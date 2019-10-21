@@ -77,6 +77,40 @@ ul.style1 .first
 	border-top: none;
 }
 
+.button {
+	float: right;
+	position: relative;
+	margin-top: 1em;
+	background: #D7CFAD;
+	color: #706C53;
+	width: 100px;
+	height: 40px;
+	transition-duration: 0.4s;
+	overflow: hidden;
+	cursor: pointer;
+	outline: none;
+}
+
+button:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+
 /** WRAPPER */
 #wrapper {
 }
@@ -115,7 +149,6 @@ ul.style1 .first
 
 #logo h1 {
 	padding: 0px 0px 0px 0px;
-	text-transform: lowercase;
 	font-size: 4em;
 	font-weight: 600;
 	color: #706C53
@@ -234,4 +267,14 @@ ul.style1 .first
 {
 	float: right;
 	width: 250px;
+}
+
+
+#mailcontent
+{
+	float: right;
+	resize:none;
+	width:500px;
+	height:150px;
+	outline: none;
 }
