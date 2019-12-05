@@ -78,17 +78,20 @@ ul.style1 .first
 }
 
 .button {
-	float: right;
 	position: relative;
 	margin-top: 1em;
 	background: #D7CFAD;
 	color: #706C53;
-	width: 100px;
 	height: 40px;
 	transition-duration: 0.4s;
 	overflow: hidden;
 	cursor: pointer;
 	outline: none;
+}
+
+.send {
+	width: 100px;
+	float: right;
 }
 
 button:after {
@@ -269,7 +272,6 @@ button:active:after {
 	width: 250px;
 }
 
-
 #mailcontent
 {
 	float: right;
@@ -277,4 +279,11 @@ button:active:after {
 	width:500px;
 	height:150px;
 	outline: none;
+}
+
+td, th
+{
+	border: 1px solid #dddddd;
+	width:10000px;
+	text-align: center;
 }
