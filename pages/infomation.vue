@@ -1,0 +1,71 @@
+<template>
+  <div id="page" class="container">
+				<h2 class="title"><a href="#">機場/航空公司</a></h2>
+				<div style="clear: both;">&nbsp;</div>
+				<button class="button">查詢所有機場資料</button>
+				<button class="button">查詢航空公司資料</button>
+				<div style="clear: both;">&nbsp;</div>
+				<table>
+					<tr>
+						<th>航空公司</th>
+
+						<th>班表開始日</th>
+						<th>班表結束日</th>
+						<th>班機號碼</th>
+						<th>起點機場</th>
+						<th>起點機場出發時間</th>
+						<th>目的地機場</th>
+						<th>終點機場抵達時間</th>
+						<th>週一</th>
+
+						FlightDate (DateTime): 航班日期(ISO8601格式:yyyy-MM-dd) ,
+						FlightNumber (string): 航機班號 ,
+						AirRouteType (integer, optional): 航線種類(目前民航局與桃機的FIDS系統都尚未提供此欄位資料) : [-2:'特殊',1:'國際',2:'國內',3:'兩岸',4:'國際包機',5:'國內包機',6:'兩岸包機'] ,
+						DepartureAirportID (string): 起點機場IATA國際代碼 ,
+						ArrivalAirportID (string): 目的地機場IATA國際代碼 ,
+						ScheduleDepartureTime (DateTime, optional): 表訂出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+						ActualDepartureTime (DateTime, optional): 實際出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+						EstimatedDepartureTime (DateTime, optional): 預估出發時間(ISO8601格式:yyyy-MM-ddTHH:mm) ,
+						DepartureRemark (string, optional): 航班屬性狀態, ,為該機場觀點的狀態 ,
+						DepartureRemarkEn (string, optional): 航班屬性狀態(英文) ,
+						Terminal (string, optional): 航廈 ,
+						Gate (string, optional): 登機門 ,
+						CodeShare (string, optional): 航班共用班號 ,
+						IsCargo (boolean, optional): 是否為貨機 ,
+						AcType (string, optional): 航空器型號 ,
+						BaggageClaim (string, optional): 行李轉盤(離站FIDS沒有「行李轉盤」資訊, 到站FIDS才可能有) ,
+						CheckCounter (string, optional): 報到櫃檯(離站FIDS可能有「報到櫃台」資訊, 到站FIDS不會有) ,
+					</tr>
+					<tr>
+						<td>B7</td>
+						<td>2019-10-01</td>
+						<td>2019-10-31</td>
+						<td>B78916</td>
+						<td>KNH</td>
+						<td>11:50</td>
+						<td>KHH</td>
+						<td>12:50</td>
+						<td>飛行</td>
+						<td>飛行</td>
+						<td>飛行</td>
+						<td>停飛</td>
+						<td>飛行</td>
+						<td>飛行</td>
+						<td>飛行</td>
+					</tr>
+				</table>
+		</div>
+</template>
+
+<script>
+
+
+export default {
+  components: {
+
+  }
+}
+</script>
+<style>
+
+</style>

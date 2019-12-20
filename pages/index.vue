@@ -1,72 +1,45 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        airplane
-      </h1>
-      <h2 class="subtitle">
-        Line bot airplane inquiry system
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+		<div id="page" class="container">
+			<div id="box1">
+				<h2 class="title"><a href="#">歡迎使用 Airplane</a></h2>
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus qui, autem fugit exercitationem nostrum aspernatur. Aliquam possimus explicabo accusantium fugit, dolore nemo repudiandae doloribus pariatur quod, vitae ipsa perferendis tempore!</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus qui, autem fugit exercitationem nostrum aspernatur. Aliquam possimus explicabo accusantium fugit, dolore nemo repudiandae doloribus pariatur quod, vitae ipsa perferendis tempore!</p>
+				</div>
+			</div>
+			<div id="box2">
+				<h2>相關資訊查詢</h2>
+				<ul class="style1">
+					<li class="first"><a href="infomation.html">查詢所有機場資料</a></li>
+					<li><a href="infomation.html">查詢航空公司資料</a></li>
+				</ul>
+			</div>
+			<div id="box3">
+				<h2>航班與時刻表</h2>
+				<ul class="style1">
+					<li class="first"><a href="flight.html">查詢機場的即時出入境航班</a></li>
+					<li><a href="flight.html">查詢即時航班資料</a></li>
+					<li><a href="flight.html">查詢機場的即時航班資料</a></li>
+					<li><a href="schedule.html">查詢國內航空定期時刻表</a></li>
+					<li><a href="schedule.html">查詢國際航空定期時刻表</a></li>
+				</ul>
+			</div>
+		</div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+
 
 export default {
   components: {
-    Logo
+
   }
 }
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>

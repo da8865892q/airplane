@@ -1,16 +1,16 @@
 <template>
   <div>
-    <HEADERS/>
-    <nuxt />
+
+
   </div>
 </template>
 
 <script>
-import HEADERS from '~/components/all/header.vue'
+
 
 export default {
   components: {
-    HEADERS
+
   }
 }
 </script>
