@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>查詢所有機場資訊</title>
+        <style>
+            html,body {
+                margin: 2;
+                padding: 0;
+                height: 98%;
+            }
+            body {
+                display: flex;
+                font-size: 10pt;
+                background: #F1E9D4;
+                color: #747474;
+                justify-content: center;
+                flex-direction: column;
+            }
+            .table-wrapper {
+                width: 100%;
+                overflow: scroll;
+            }
+            table {
+                text-align: center;
+                border-collapse: collapse;
+            }
+            tr:nth-child(even) {
+                background-color: #e3bdb0;
+            }
+            td, th {
+                white-space: nowrap;
+                padding: 5px;
+            }
+            th {
+                background-color: #795548;
+                color: #fff;
+                position: sticky;
+                top: -1px;
+            }
+        </style>
+    </head>
+    <body>
+        <center><h1>查詢所有機場資訊</h1></center>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>機場名稱</th>
+                        <th>IATA國際代碼</th>
+                        <th>ICAO國際代碼</th>
+                        <th>國籍</th>
+                        <th>城市</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>阿拉馬伊克巴勒國際機場(Lahore)</td>
+                        <td>LHE</td>
+                        <td>OPLA</td>
+                        <td>PK</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>PTSA(Kosrae International Airport)</td>
+                        <td>KSA</td>
+                        <td>PTSA</td>
+                        <td>PW</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>長崎機場(Nagasaki)</td>
+                        <td>NGS</td>
+                        <td>RJFU</td>
+                        <td>JP</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>銀川河東國際機場(Yinchuan Hedong Airport)</td>
+                        <td>INC</td>
+                        <td>ZLIC</td>
+                        <td>CN</td>
+                        <td>銀川(Yinchuan)</td>
+                    </tr>
+                    <tr>
+                        <td>孟買國際機場(Mumbai Intl Airport)</td>
+                        <td>BOM</td>
+                        <td>VABB</td>
+                        <td>IN</td>
+                        <td>孟買(Mumbai)</td>
+                    </tr>
+                    <tr>
+                        <td>奧斯陸加勒穆恩國際機場(Gardermoen Intl Airport)</td>
+                        <td>OSL</td>
+                        <td>ENGM</td>
+                        <td>NO</td>
+                        <td>奧斯陸(Oslo)</td>
+                    </tr>
+                    <tr>
+                        <td>澳門國際機場(Macau Intl Airport)</td>
+                        <td>MFM</td>
+                        <td>VMMC</td>
+                        <td>MO</td>
+                        <td>澳門(Macau)</td>
+                    </tr>
+                    <tr>
+                        <td>巴黎奧利機場(Paris Orly Airport)</td>
+                        <td>ORY</td>
+                        <td>LFPO</td>
+                        <td>FR</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>名古屋(Nagoya)</td>
+                        <td>NKM</td>
+                        <td>RJNA</td>
+                        <td>JP</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>棉蘭波羅尼亞 印尼(MEDAN)</td>
+                        <td>KNO</td>
+                        <td>WIMM</td>
+                        <td>ID</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>巴淡島(Batam)</td>
+                        <td>-</td>
+                        <td>WIKB</td>
+                        <td>ID</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>沙加緬度(SACRAMENTO)</td>
+                        <td>SMF</td>
+                        <td>KSMF</td>
+                        <td>US</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>巴拿馬托庫門國際機場(Tocumen International Airport)</td>
+                        <td>PTY</td>
+                        <td>MPTO</td>
+                        <td>PA</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>洛杉磯國際機場(Los Angeles)</td>
+                        <td>LAX</td>
+                        <td>KLAX</td>
+                        <td>US</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>庫頁島(YUZHNO-SAKHALINSK/KHOMUTOVO)</td>
+                        <td>UUS</td>
+                        <td>UHSS</td>
+                        <td>RU</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>(Bristol Filton Airport)</td>
+                        <td>FZO</td>
+                        <td>EGTG</td>
+                        <td>GB</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>魁北克(加拿大)(Quebec Canada)</td>
+                        <td>YQB</td>
+                        <td>CYQB</td>
+                        <td>CA</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>薩爾茨堡機場(Salzburg Airport)</td>
+                        <td>SZG</td>
+                        <td>LOWS</td>
+                        <td>AT</td>
+                        <td>薩爾茨堡(Salzburg)</td>
+                    </tr>
+                    <tr>
+                        <td>馬拉威(Malawi)</td>
+                        <td>-</td>
+                        <td>FWLI</td>
+                        <td>MW</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>基督城國際機場(CHRISTCHURCH)</td>
+                        <td>CHC</td>
+                        <td>NZCH</td>
+                        <td>NZ</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>熊本機場(KUMAMOTO)</td>
+                        <td>KMJ</td>
+                        <td>RJFT</td>
+                        <td>JP</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>喀什機場(Kashgar Airport)</td>
+                        <td>KHG</td>
+                        <td>ZWSH</td>
+                        <td>CN</td>
+                        <td>喀什(Kashgar)</td>
+                    </tr>
+                    <tr>
+                        <td>羅馬法林明高機場(Rome / Fiumicino)</td>
+                        <td>FCO</td>
+                        <td>LIRF</td>
+                        <td>IT</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>艾因國際機場(AL AIN)</td>
+                        <td>AAN</td>
+                        <td>OMAL</td>
+                        <td>AE</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>約翰尼斯堡奧利弗坦博國際機場()</td>
+                        <td>JNB</td>
+                        <td>FAJS</td>
+                        <td>ZA</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>米蘭馬爾彭薩機場(Malpensa Intl Airport)</td>
+                        <td>MXP</td>
+                        <td>LIMC</td>
+                        <td>IT</td>
+                        <td>米蘭(Milan)</td>
+                    </tr>
+                    <tr>
+                        <td>布達佩斯國際機場(Budapest Airport)</td>
+                        <td>BUD</td>
+                        <td>LHBP</td>
+                        <td>HU</td>
+                        <td>布達佩斯(Budapest)</td>
+                    </tr>
+                    <tr>
+                        <td>旭川機場(Asahikawa)</td>
+                        <td>AKJ</td>
+                        <td>RJEC</td>
+                        <td>JP</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>臺中國際機場(Ching Chung Kang Airport)</td>
+                        <td>RMQ</td>
+                        <td>RCMQ</td>
+                        <td>TW</td>
+                        <td>臺中(Taichung)</td>
+                    </tr>
+                    <tr>
+                        <td>波特蘭國際機場(PORTLAND)</td>
+                        <td>PDX</td>
+                        <td>KPDX</td>
+                        <td>US</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
